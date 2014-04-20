@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Merchant do
-  pending "add some examples to (or delete) #{__FILE__}"
+  pending "should not allow more than one metchant with the same name"
+  pending "should have many transactions"
 end
