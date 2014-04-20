@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# It's a good practice to ensure every developer is using the same ruby version
+ruby '2.0.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
@@ -30,6 +33,18 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development do
+  # Use Pry and Better Errors for awesome error messages.
+  gem 'pry-rails', '0.3.2'
+  gem 'pry-plus', '1.0.0'
+  gem 'better_errors', '1.1.0'
+  gem 'binding_of_caller', '0.7.2'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '2.14.1'
 end
 
 # Use ActiveModel has_secure_password
