@@ -9,9 +9,9 @@ describe ImportsController do
     end
   end
 
-  describe "GET 'parse'" do
+  describe "POST 'parse'" do
     it "returns http success" do
-      get 'parse'
+      post 'parse'
       response.should be_success
     end
   end
