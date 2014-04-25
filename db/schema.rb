@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140420184154) do
+ActiveRecord::Schema.define(version: 20140425054905) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(version: 20140420184154) do
   end
 
   add_index "clients", ["name"], name: "index_clients_on_name", unique: true
+
+  create_table "imports", force: true do |t|
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "merchants", force: true do |t|
     t.string   "name"
