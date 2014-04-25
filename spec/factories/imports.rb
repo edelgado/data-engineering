@@ -1,7 +1,5 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :import do
-    file "MyString"
+    file File.open("#{Rails.root}/spec/support/example_input.tab")
   end
 end
