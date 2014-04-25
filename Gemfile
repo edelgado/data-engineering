@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 1.2'
 # CarrierWave gem for file attachments (https://github.com/carrierwaveuploader/carrierwave)
 gem 'carrierwave', '0.10.0'
 
+# Use FasterCSV gem to parse the tab-delimited file
+gem 'fastercsv', '~> 1.5.5'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
