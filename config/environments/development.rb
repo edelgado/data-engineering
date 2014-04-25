@@ -26,4 +26,7 @@ Livingsocial::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # Use Pry + Better_Errors :-]
+  BetterErrors.use_pry!
 end
