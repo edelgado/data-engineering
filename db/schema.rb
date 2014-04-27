@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425063947) do
+ActiveRecord::Schema.define(version: 20140427175604) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -44,9 +44,11 @@ ActiveRecord::Schema.define(version: 20140425063947) do
     t.integer  "client_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "import_id"
   end
 
   add_index "transactions", ["client_id"], name: "index_transactions_on_client_id"
+  add_index "transactions", ["import_id"], name: "index_transactions_on_import_id"
   add_index "transactions", ["merchant_id"], name: "index_transactions_on_merchant_id"
 
 end

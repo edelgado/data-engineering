@@ -20,6 +20,10 @@ describe Transaction do
     an_import = FactoryGirl.create(:import)
     an_import.process_file
     Transaction.total_gross_revenue.should == 95.0
+    another_import = FactoryGirl.create(:import)
+    another_import.process_file
+    Transaction.total_gross_revenue.should == 190.0
+    Transaction.total_gross_revenue(another_import.id).should == 95.0
   end
 
 end

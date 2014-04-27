@@ -25,6 +25,11 @@ describe Merchant do
     an_import.process_file
     nse = Merchant.find_by name: 'Sneaker Store Emporium'
     nse.total_sales.should == 25.0
+    another_import = FactoryGirl.create(:import)
+    another_import.process_file
+    nse = Merchant.find_by name: 'Sneaker Store Emporium'
+    nse.total_sales.should == 50.0
+    nse.total_sales(another_import.id).should == 25.0
   end
   
 end

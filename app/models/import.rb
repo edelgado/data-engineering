@@ -1,5 +1,6 @@
 class Import < ActiveRecord::Base
   validates :file, presence: true
+  has_many :transactions
   mount_uploader :file, FileUploader
 
   def process_file
@@ -29,7 +30,9 @@ class Import < ActiveRecord::Base
 
       # Save the transaction and any new associated models:
       begin
-      a_transaction.save!
+
+      #a_transaction.save!
+      self.transactions << a_transaction
       rescue Exception => e
         binding.pry
       end      

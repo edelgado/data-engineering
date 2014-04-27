@@ -26,6 +26,11 @@ describe Client do
     an_import.process_file
     nse = Client.find_by name: 'Snake Plissken'
     nse.total_purchases.should == 40.0
+    another_import = FactoryGirl.create(:import)
+    another_import.process_file
+    nse = Client.find_by name: 'Snake Plissken'
+    nse.total_purchases.should == 80.0
+    nse.total_purchases(another_import.id).should == 40
   end
   
 end
