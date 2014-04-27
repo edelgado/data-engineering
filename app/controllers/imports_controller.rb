@@ -7,6 +7,7 @@ class ImportsController < ApplicationController
     @file_upload = Import.new(import_params['import'])
     if @file_upload.save
       flash[:notice] = 'Cool'
+      @file_upload.process_file
     else
       render action: 'upload'
     end
