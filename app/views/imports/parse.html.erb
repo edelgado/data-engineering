@@ -51,9 +51,11 @@
         <h3 class="panel-title">Sales</h3>
       </div>
       <div class="panel-body">
+        <ul>
         <% @merchants.each do |m| %>
           <li><%= m.name %> - <%= number_to_currency(m.total_sales) %>
         <% end %>
+        </ul>
       </div>
     </div>
   </div><!--col-md-4-->
