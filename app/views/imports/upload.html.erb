@@ -1,16 +1,26 @@
-<h1>Legacy System Import Tool</h1>
-<% if @file_upload.errors.any? %>
-  <div id="error_explanation">
-    <h2>Oops!</h2>
-    <ul>
-    <% @file_upload.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+<div class="row">
+  <div class="col-md-12">
+    <% if @file_upload.errors.any? %>
+      <div class="alert alert-danger">
+        <p><strong>Oops!</strong></p>
+        <ul>
+        <% @file_upload.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
-    </ul>
   </div>
-<% end %>
-<%= form_for @file_upload, url: {action: "parse"}, html: {multipart: true} do |f| -%>
-  <%= f.label :file, "Upload the tab-delimited (.tab) file from our legacy system:" %>
-  <%= f.file_field :file %>
-  <%= f.submit "Import", data: { disable_with: 'Importing...' } %>
-<% end -%>
+</div><!--row-->
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for @file_upload, url: {action: "parse"}, html: {multipart: true, role: 'form', class: 'form-inline'} do |f| -%>
+    <div class="form-group">
+      <%= f.label :file, "Legacy transaction file." %>
+      <%= f.file_field :file %>
+      <p class="help-block">Tab-delimited (.tab) files, please.</p>
+    </div>
+    <%= f.submit "Import", {class: 'btn btn-primary btn-lg' , data: { disable_with: 'Importing...' }}  %>    
+    <% end -%> 
+  </div><!--col-md-12-->
+</div><!--row-->

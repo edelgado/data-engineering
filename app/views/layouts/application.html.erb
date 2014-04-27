@@ -18,12 +18,19 @@
     <![endif]-->
   </head>
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag :div, value, class: "flash #{key}" %>
-    <% end %>
-
-    <%= yield %>
-
-    <%= javascript_include_tag("footer") %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h1>Import Tool <small>For Legacy Systems</small></h1>
+          </div>
+          <% flash.each do |key, value| %>
+            <%= content_tag :div, value, class: "alert alert-#{key}" %>
+          <% end %>
+        </div><!--col-md-12-->
+      </div><!--row-->
+      <%= yield %>
+      <%= javascript_include_tag("footer") %>
+    </div><!--container-->
   </body>
 </html>

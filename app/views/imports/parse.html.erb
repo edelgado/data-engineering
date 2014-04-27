@@ -1,2 +1,100 @@
-<h1>Imports#parse</h1>
-<p>Find me in app/views/imports/parse.html.erb</p>
+<div class="row">
+  <div class="col-md-6">
+    <h2>This Import</h2>
+  </div>
+  <div class="col-md-6">
+    <h2>Cumulative</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Total Gross Revenue</h3>
+      </div>
+      <div class="panel-body result">
+        <%= number_to_currency(@total_gross_revenue) %>
+      </div>
+    </div>
+  </div><!--col-md-4-->
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Total Gross Revenue</h3>
+      </div>
+      <div class="panel-body result">
+        <%= number_to_currency(@cumulative_total_gross_revenue) %>
+      </div>
+    </div>
+  </div><!--col-md-4-->
+  <div class="col-md-4">
+  </div>
+</div><!--row-->
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sales</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @merchants.each do |m| %>
+          <li><%= m.name %> - <%= number_to_currency(m.total_sales(@file_upload.id)) %>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div><!--col-md-4-->
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sales</h3>
+      </div>
+      <div class="panel-body">
+        <% @merchants.each do |m| %>
+          <li><%= m.name %> - <%= number_to_currency(m.total_sales) %>
+        <% end %>
+      </div>
+    </div>
+  </div><!--col-md-4-->
+  <div class="col-md-4">
+  </div>
+</div><!--row-->
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Purchases</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @clients.each do |client| %>
+          <li><%= client.name %> - <%= number_to_currency(client.total_purchases(@file_upload.id)) %>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div><!--col-md-4-->
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Purchases</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @clients.each do |client| %>
+          <li><%= client.name %> - <%= number_to_currency(client.total_purchases) %>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div><!--col-md-4-->
+  <div class="col-md-4">
+  </div>
+</div><!--row-->
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to "Upload More", {controller: "imports", action: "upload"}, {class: 'btn btn-primary'} %> 
+    <%= link_to "Erase DB", {controller: "imports", action: "start_over"}, {class: 'btn btn-danger'} %>
+  </div>
+</div>

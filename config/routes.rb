@@ -1,5 +1,6 @@
 Livingsocial::Application.routes.draw do
   get "imports/upload"
+  get "imports/start_over"
   post "imports/parse"
   root "imports#upload"
   # The priority is based upon order of creation: first created -> highest priority.
