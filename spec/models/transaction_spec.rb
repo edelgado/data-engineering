@@ -16,4 +16,10 @@ describe Transaction do
     expect(transaction.merchant.name).to_not be_empty
   end
 
+  it "calculates total gross revenue correctly" do
+    an_import = FactoryGirl.create(:import)
+    an_import.process_file
+    Transaction.total_gross_revenue.should == 95.0
+  end
+
 end

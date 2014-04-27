@@ -19,5 +19,12 @@ describe Merchant do
     #binding.pry
     expect(merchant.transactions.length).to eq(10)
   end
+
+  it "calculates total sales correctly" do
+    an_import = FactoryGirl.create(:import)
+    an_import.process_file
+    nse = Merchant.find_by name: 'Sneaker Store Emporium'
+    nse.total_sales.should == 25.0
+  end
   
 end

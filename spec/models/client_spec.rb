@@ -20,5 +20,12 @@ describe Client do
     #binding.pry
     expect(client.transactions.length).to eq(10)
   end
+
+  it "calculates total purchases correctly" do
+    an_import = FactoryGirl.create(:import)
+    an_import.process_file
+    nse = Client.find_by name: 'Snake Plissken'
+    nse.total_purchases.should == 40.0
+  end
   
 end
