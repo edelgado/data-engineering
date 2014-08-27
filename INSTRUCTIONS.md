@@ -8,3 +8,4 @@
 
 # Testing
   * Models: `bundle exec rake spec:models`
+  * Hello
